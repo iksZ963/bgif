@@ -1,4 +1,36 @@
+/* index.css */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* In index.css or a global CSS file */
+
+:root {
+  --color-dark-green: #14342B;
+  --color-asparagus: #60935D;
+  --color-old-gold: #BAB700;
+  --color-celadon: #BBDFC5;
+  --color-brilliant-rose: #FF579F;
+}
+
+
+/* src/index.css or src/assets/styles/global.css */
+
+@font-face {
+  font-family: 'AbuSayed';
+  src: url('./assets/fonts/AbuSayed.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Apply the font globally (optional) */
 body {
+  font-family: 'AbuSayed', sans-serif;
+}
+
+
+/* body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -10,4 +42,4 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-}
+} */

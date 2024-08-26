@@ -20,12 +20,12 @@ const GifList = () => {
 
     return (
         <div>
-            <h2>All GIFs</h2>
-            <div>
+            <h2 className="text-2xl font-bold mb-4 text-darkGreen">All GIFs</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                 {gifs.map((gif) => (
-                    <div key={gif._id}>
-                        <h3>{gif.title}</h3>
-                        <img src={gif.url} alt={gif.title} />
+                    <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 border border-asparagus" key={gif._id}>
+                        <img src={`${process.env.REACT_APP_BACKEND_URL}/${gif.url}`} alt={gif.title} className="w-full h-auto" />
+                        <h3 className="p-2 text-center text-lg font-semibold text-darkGreen">{gif.title}</h3>
                     </div>
                 ))}
             </div>

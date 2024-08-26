@@ -18,17 +18,20 @@ const UploadGif = () => {
                 }
             });
             console.log('GIF uploaded:', response.data);
+            setTitle('');
+            setGifFile(null);
         } catch (error) {
             console.error('Error uploading GIF:', error);
         }
     };
 
     return (
-        <div>
-            <h2>Upload a GIF</h2>
+        <div className="bg-white p-6 rounded-lg shadow-md border border-asparagus">
+            <h2 className="text-2xl font-bold mb-4 text-darkGreen">Upload a GIF</h2>
             <form onSubmit={handleSubmit}>
                 <input
                     type="text"
+                    className="w-full p-2 border rounded-md mb-4 border-asparagus"
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
                     placeholder="Enter GIF title"
@@ -36,11 +39,14 @@ const UploadGif = () => {
                 />
                 <input
                     type="file"
+                    className="w-full p-2 border rounded-md mb-4 border-asparagus"
                     onChange={(e) => setGifFile(e.target.files[0])}
                     accept="image/gif"
                     required
                 />
-                <button type="submit">Upload</button>
+                <button type="submit" className="bg-oldGold text-white px-4 py-2 rounded-md hover:bg-asparagus">
+                    Upload
+                </button>
             </form>
         </div>
     );
