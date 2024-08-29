@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Button } from './ui/button';
 
 const Home = () => {
     const [searchQuery, setSearchQuery] = useState('');
@@ -20,9 +21,9 @@ const Home = () => {
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                 />
-                <button type="submit" className="bg-oldGold text-white px-4 py-2 rounded-md mt-2 hover:bg-asparagus">
+                <Button type="submit" className="bg-darkGreen custom text-white px-4 py-2 rounded-md mt-2 hover:bg-asparagus">
                     Search
-                </button>
+                </Button>
             </form>
         </div>
     );

@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "target": "ES6",                // Target latest ECMAScript standard
+    "lib": ["DOM", "DOM.Iterable", "ESNext"], // Include necessary libraries
+    "allowJs": true,                // Allow JavaScript files
+    "skipLibCheck": true,           // Skip type checking of declaration files
+    "esModuleInterop": true,        // Enable compatibility between CommonJS and ES modules
+    "allowSyntheticDefaultImports": true,
+    "strict": true,                 // Enable all strict type checking options
+    "forceConsistentCasingInFileNames": true, // Enforce consistent file naming
+    "noEmit": true,                 // Don't emit outputs, used only for type checking
+    "jsx": "react-jsx",             // Use React JSX runtime
+    "moduleResolution": "node",     // Resolve modules as Node.js does
+    "resolveJsonModule": true,      // Include modules imported from JSON files
+    "isolatedModules": true,        // Treat each file as a separate module
+    "noFallthroughCasesInSwitch": true, // Disallow fallthrough in switch statements
+    "module": "ESNext",             // Module system to use
+    "baseUrl": ".",                 // Base URL to resolve non-relative module names
+    "paths": {
+      "@/*": ["./*"]              // Setup path alias for simpler imports
+    },
+    "types": ["node", "react"]
+  },
+  "include": ["src/**/*"],          // Include all files in the src directory
+  "exclude": ["node_modules", "build"] // Exclude node_modules and build directories
+}
