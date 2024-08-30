@@ -5,7 +5,7 @@ import UploadGif from './components/UploadGif';
 import GifList from './components/GifList';
 import './index.css'; // Ensure global styles are imported
 
-function App() {
+const App: React.FC = () => {
     return (
         <Router>
             <div className="navbar bg-darkGreen p-4 flex justify-between items-center text-white">

@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import { Button } from './ui/button';
 
-const Home = () => {
-    const [searchQuery, setSearchQuery] = useState('');
+interface HomeProps {}
 
-    const handleSearch = (e) => {
-        e.preventDefault();
-        console.log('Search for:', searchQuery);
-        // Implement search logic here
+const Home: React.FC<HomeProps> = () => {
+    const [searchQuery, setSearchQuery] = useState<string>('');
+  
+    const handleSearch = (e: React.FormEvent) => {
+      e.preventDefault();
+      console.log('Search for:', searchQuery);
     };
 
     return (

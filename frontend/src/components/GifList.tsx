@@ -1,21 +1,26 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-const GifList = () => {
-    const [gifs, setGifs] = useState([]);
-
+interface Gif {
+    _id: string;
+    url: string;
+    title: string;
+  }
+  
+  const GifList: React.FC = () => {
+    const [gifs, setGifs] = useState<Gif[]>([]);
+  
     useEffect(() => {
-        // Fetch GIFs from the backend
-        const fetchGifs = async () => {
-            try {
-                const response = await axios.get(`${process.env.REACT_APP_API_URL}/gifs`);
-                setGifs(response.data);
-            } catch (error) {
-                console.error('Error fetching GIFs:', error);
-            }
-        };
-
-        fetchGifs();
+      const fetchGifs = async () => {
+        try {
+          const response = await axios.get<Gif[]>(`${process.env.REACT_APP_API_URL}/gifs`);
+          setGifs(response.data);
+        } catch (error) {
+          console.error('Error fetching GIFs:', error);
+        }
+      };
+  
+      fetchGifs();
     }, []);
 
     return (

@@ -1,28 +1,30 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const UploadGif = () => {
-    const [title, setTitle] = useState('');
-    const [gifFile, setGifFile] = useState(null);
-
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        const formData = new FormData();
-        formData.append('title', title);
+const UploadGif: React.FC = () => {
+    const [title, setTitle] = useState<string>('');
+    const [gifFile, setGifFile] = useState<File | null>(null);
+  
+    const handleSubmit = async (e: React.FormEvent) => {
+      e.preventDefault();
+      const formData = new FormData();
+      formData.append('title', title);
+      if (gifFile) {
         formData.append('gifFile', gifFile);
-
-        try {
-            const response = await axios.post(`${process.env.REACT_APP_API_URL}/gifs/upload`, formData, {
-                headers: {
-                    'Content-Type': 'multipart/form-data'
-                }
-            });
-            console.log('GIF uploaded:', response.data);
-            setTitle('');
-            setGifFile(null);
-        } catch (error) {
-            console.error('Error uploading GIF:', error);
-        }
+      }
+  
+      try {
+        const response = await axios.post(`${process.env.REACT_APP_API_URL}/gifs/upload`, formData, {
+          headers: {
+            'Content-Type': 'multipart/form-data'
+          }
+        });
+        console.log('GIF uploaded:', response.data);
+        setTitle('');
+        setGifFile(null);
+      } catch (error) {
+        console.error('Error uploading GIF:', error);
+      }
     };
 
     return (
@@ -40,7 +42,7 @@ const UploadGif = () => {
                 <input
                     type="file"
                     className="w-full p-2 border rounded-md mb-4 border-asparagus"
-                    onChange={(e) => setGifFile(e.target.files[0])}
+                    onChange={(e) => setGifFile(e.target.files ? e.target.files[0] : null)}
                     accept="image/gif"
                     required
                 />
