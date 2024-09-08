@@ -5,7 +5,7 @@ const GifSchema = new mongoose.Schema({
     url: { type: String, required: true },
     uploadedBy: { type: String },
     createdAt: { type: Date, default: Date.now },
-    tags: [String],
+    tags: [{ type: String }],
     likes: { type: Number, default: 0 }
 });
 
